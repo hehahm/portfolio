@@ -1,0 +1,15 @@
+img/
+*.scss
+gnu/
+bbs/
+data/
+extend/
+install/
+shop/
+adm/
+*.ppt
+*.pdf
+*.psd
+*.ai
+0706/
+.vscode/

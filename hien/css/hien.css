@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body{font-family: 'OTWelcomeRA'}
+
+/* common */
+li{list-style:none}
+#gnb a{color:black; text-decoration:none;}
+#hd > div{border-bottom:1px solid black}
+
+/*열고 닫기 버튼 교차로 보이게*/
+.open > .fa-xmark {display:block}
+.open > .fa-bars {display:none}
+.fa-xmark {display:none}
+.fa-bars {display:block}
+
+/* 햄버거 메뉴 열리기 */
+.open + #gnb {display:flex !important;
+    position:fixed;
+    background-color: #f9e493;
+    left:0; right: 0px; top:79px;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding:30px;
+    line-height:2;
+}
+/* 햄버거 메뉴 안에 말풍선 뾰족이 */
+.open + #gnb:before{
+    content:"";
+    display:block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color:#f9e493;
+    left:0; right:0; 
+    margin:0 auto; 
+    /* 좌우로만 가운데에 가겠다 */
+    transform: rotate(-45deg);
+    top:-5px;
+}
+/* 대메뉴 페이지 스크롤 및 색상 바뀌기 */
+#gnb a.act{color:#FCA800;}
+
+/* layout */
+#hd > div{background-color: white;}
+#hd img{height:70px; padding-top:20px}
+#allMenu{position:fixed; top:30px; right:30px;}
+.open + #gnb li {margin:10px;}
+#main > div{padding-top:5%;}
+#me h2{padding-top:2%; padding-left:4%; border-radius:30px}
+#me .meimg{padding-left:10%; padding-right:10%}
+#me .profile_image{border-radius:30px;}
+#me .skill{padding-top:10%; padding-left:10%;}
+#preinterview{padding-left:10%; padding-right:10%}
+#preinterview h2 {padding-top:1%; padding-left:2%; border-radius:30px; background-color:#ffca08; color:#fff}
+#preinterview dl {padding-top:1%; padding-left:3%}
+
+/* 스와이퍼 반응형 처리*/
+#portfolio .swiper-slide{
+    max-height:700px; /*데스크탑 이미지의 실높이*/
+    height: 100vw; /*화면 너비만큼 높이를 줄게*/
+}
+
+/* 스와이퍼 배경이미지 넣기 */
+#portfolio .sir{background-image: url(/hien/img/swiper.jpg);}
+#portfolio .hardcode{background-image : url(/hien/img/swiper2.jpg);}
+#portfolio .ecom{background-image :url(/hien/img/swiper3.jpg);}
+#portfolio .sir, #portfolio .hardcode, #portfolio .ecom{
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+#portfolio .swiper-slide{
+    /* max-height:700px; 데스크탑 이미지의 실높이 */
+    /* height: 100vw; 화면 너비만큼 높이를 줄게 */
+    height: 0;
+    padding-top:100%
+    /* padding 의 % 기준은 height, 그런데 height 가 0이면 width 를 기준으로 처리한다.
+    정사각형의 원리 width:100%  */
+}
+/* 데스크탑에서 직사각형으로 보이고 */
+@media (min-width:863px){
+    #portfolio .swiper-slide{
+        height:700px;
+		padding-top: 0;
+    }
+    #main > div{
+        height:100vh;
+    }
+}
+/* 모바일에서 정사각형으로 (768 이상 md) */
+@media (max-width:863px){
+    #portfolio .sir{
+        background-image: url(/hien/img/mobile_slide1.png);
+        background-position: center;
+    }
+    #portfolio .hardcode{
+        background-image: url(/hien/img/mobile_slide2.png);
+        background-position: center;
+    }
+    #portfolio .ecom{
+        background-image: url(/hien/img/mobile_slide3.png);
+        background-position: center;
+    }
+}
+
+/* AOS 무임승차 최적화 */
+#me h2{
+    background-color:white; color:#FCA800;
+    transition-delay: 1s; transition-duration: 1s; }
+    /* 갑자기 없다가 나타난 클래스 aos-animate 에 기생할거야 */
+.aos-animate h2{
+    background-color:#ffca08 !important;
+    color:#fff !important;
+}
