@@ -8,8 +8,10 @@ body{font-family: 'OTWelcomeRA'}
 
 /* common */
 li{list-style:none}
+.text-align-center{text-align: center;}
 #gnb a{color:black; text-decoration:none;}
 #hd > div{border-bottom:1px solid black}
+
 
 /*열고 닫기 버튼 교차로 보이게*/
 .open > .fa-xmark {display:block}
@@ -27,6 +29,7 @@ li{list-style:none}
     align-items:center;
     padding:30px;
     line-height:2;
+    z-index:100;
 }
 /* 햄버거 메뉴 안에 말풍선 뾰족이 */
 .open + #gnb:before{
@@ -51,6 +54,7 @@ li{list-style:none}
 #allMenu{position:fixed; top:30px; right:30px;}
 .open + #gnb li {margin:10px;}
 #main > div{padding-top:5%;}
+#ft{padding-top:10%}
 #me h2{padding-top:2%; padding-left:4%; border-radius:30px}
 #me .meimg{padding-left:10%; padding-right:10%}
 #me .profile_image{border-radius:30px;}
@@ -94,6 +98,9 @@ li{list-style:none}
 }
 /* 모바일에서 정사각형으로 (768 이상 md) */
 @media (max-width:863px){
+    #hd h1{text-align:center}
+    #hd h1 img{width:70%;}
+    #gnb{display:none}
     #portfolio .sir{
         background-image: url(/hien/img/mobile_slide1.png);
         background-position: center;
@@ -105,6 +112,9 @@ li{list-style:none}
     #portfolio .ecom{
         background-image: url(/hien/img/mobile_slide3.png);
         background-position: center;
+    }
+    #me .profile_image{
+        max-width: 80vw
     }
 }
 
